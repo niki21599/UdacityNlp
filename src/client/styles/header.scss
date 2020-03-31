@@ -1,11 +1,32 @@
 header {
     display: flex;
     justify-content: space-between;
-    padding: 10px 40px;
-    background-color: lightblue;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(0, 200, 200);
     height: 80px;
-}
-.logo{
+    .logo{
+        height: 60px;
+        width: 60px;
 
+    }
+    .title{
+        color: white;
+        font-size: 30px;
+        font-family: cursive;
+
+    }
+    .login{
+        background-color: white;
+        border-radius: 15%;
+        font-size: 15px;
+        color: orange;
+        border: 1px solid orange;
+        margin-bottom: 10px;
+        height: 30px;
+        width: 80px;
+    }
+    
 }
+
 
