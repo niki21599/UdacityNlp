@@ -3,14 +3,16 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+        
+    displayCategory(formText)
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8081/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
 }
 
+function displayCategory(text){
+    Client.postText("/text", {text: text})
+    Client.getCategory()
+     .then(function(data){
+        Client.updateUI(data)
+     })
+}
 export { handleSubmit }

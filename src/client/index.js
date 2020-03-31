@@ -1,5 +1,7 @@
-import { checkForName } from './js/nameChecker'
+import { postText } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
+import { getCategory } from './js/nameChecker'
+import { updateUI } from './js/nameChecker'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
@@ -17,7 +19,9 @@ import {logo} from "./img/logo.jpg"
 
 
 export{
-    checkForName,
-    handleSubmit
+    postText,
+    handleSubmit, 
+    getCategory, 
+    updateUI
     
 }
