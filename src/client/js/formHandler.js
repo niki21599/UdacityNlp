@@ -5,14 +5,22 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
         
     displayCategory(formText)
+    
+    
 
 }
 
 function displayCategory(text){
-    Client.postText("/text", {text: text})
-    Client.getCategory()
+    determineCategory(text)
      .then(function(data){
         Client.updateUI(data)
      })
 }
-export { handleSubmit }
+
+
+
+function determineCategory(text){
+    Client.postText("/text", {text: text})
+    return Client.getCategory()
+}
+export { handleSubmit, determineCategory }

@@ -25,8 +25,6 @@ var textapi = new aylien({
 
 console.log(__dirname)
 
-
-
 let text = ""
 
 app.get('/', function (req, res) {
@@ -45,28 +43,30 @@ app.get('/test', function (req, res) {
 
 app.post("/text", (req, res) =>{
    
-   text = req.body.text
+  text = req.body.text
    console.log(text);
+
 })
 
-app.get("/analyseText", (req, res)=> {
-     
-    let x = textapi.classify({
-        text: text
-      }, function(error, response) {
-        if (error === null) {
-          response['categories'].forEach(function(c) {
-            console.log(c);
-            
-            res.send(c)
-            
-          });
-        }else{
-            console.log(error);
-            res.send({
-                label: "Invalid Input"
-            });
-        }
+
+app.get("/analyseText", (req, res) =>{
+  let x =  textapi.classify({
+    text: text
+  }, function(error, response) {
+    if (error === null) {
+      response['categories'].forEach(function(c) {
+        console.log(c);
+        
+        res.status(200).send(c);
+        
       });
-      
+    }else{
+        console.log(error);
+        res.send({
+            label: "Invalid Input"
+        });
+    }
+  });
 })
+
+
