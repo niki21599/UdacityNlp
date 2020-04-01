@@ -106,3 +106,19 @@ Once you are hooked up to the Aylien API, you are most of the way there! Along w
 ## Deploying
 
 A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
+
+
+#first Step
+First I added all required steps to set up Webpack, just how we did it in the course. 
+#second Step
+Then I changed the CSS to SCSS, added the required loaders, and made the layout of the header and the footer. 
+#third Step
+Added the Client Library so I could to do eventHandling
+#fourth Step
+Setting Up the API just like in the steps shown. I decided to use the category part of the API --> Wrote the requests and routes to finally make the category display on the view. 
+#fifth Step
+Added Service Worker to make it work when offline. 
+#sixth Step
+Adding test cases for each js file
+
+
