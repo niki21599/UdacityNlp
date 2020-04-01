@@ -56,14 +56,17 @@ app.get("/analyseText", (req, res)=> {
       }, function(error, response) {
         if (error === null) {
           response['categories'].forEach(function(c) {
+            console.log(c);
             
             res.send(c)
             
           });
+        }else{
+            console.log(error);
+            res.send({
+                label: "Invalid Input"
+            });
         }
       });
-      
-      
-      
       
 })

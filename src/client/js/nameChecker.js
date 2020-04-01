@@ -26,12 +26,16 @@ const getCategory = async () =>{
     } catch (error) {
         console.log(error);
         
+        
+        
     }
 }
 
 const updateUI = (category) => {
     
     document.getElementById('results').innerHTML = `This Text belongs to the category ${category}`
+    
+    
 }
 
 
