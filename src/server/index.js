@@ -44,7 +44,6 @@ app.get('/test', function (req, res) {
 app.post("/text", (req, res) =>{
    
   text = req.body.text
-   console.log(text);
 
 })
 
@@ -55,7 +54,6 @@ app.get("/analyseText", (req, res) =>{
   }, function(error, response) {
     if (error === null) {
       response['categories'].forEach(function(c) {
-        console.log(c);
         
         res.status(200).send(c);
         
