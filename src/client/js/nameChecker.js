@@ -28,14 +28,15 @@ const getCategory = async () =>{
 }
 
 const updateUI = (sentiment) => {
+    document.getElementById('results').innerHTML = ""
+    addParagraphtoResult("p0")
     if (sentiment.text === "invalid") {
-        document.getElementById('results').innerHTML = "Invalid Input - Try again."
+        let p = document.getElementById('p0')
+        p.innerHTML = "Invalid Input - Try again."
         
     }else{
-        for (let index = 0; index < 5; index++) {
-            let p = document.createElement("p") 
-            p.id = `p${index}`
-            document.getElementById('results').appendChild(p)
+        for (let index = 1; index < 5; index++) {
+            addParagraphtoResult(`p${index}`)
      
          }
          document.getElementById('p0').innerHTML = `${sentiment.polarity}`
@@ -43,9 +44,15 @@ const updateUI = (sentiment) => {
          document.getElementById('p2').innerHTML = `${sentiment.polarity_confidence}`
          document.getElementById('p3').innerHTML = `${sentiment.subjectivity_confidence}`
          document.getElementById('p4').innerHTML = `${sentiment.text}`
+
     }
     
 
+}
+const addParagraphtoResult = (id) => {
+    let p = document.createElement("p") 
+    p.id = id
+    document.getElementById('results').appendChild(p)
 }
 
 
