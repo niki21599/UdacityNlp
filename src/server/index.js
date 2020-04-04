@@ -25,7 +25,7 @@ var textapi = new aylien({
 
 console.log(__dirname)
 
-let text = ""
+let url = ""
 
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
@@ -42,29 +42,44 @@ app.get('/test', function (req, res) {
 })
 
 app.post("/text", (req, res) =>{
-   
-  text = req.body.text
+  
+  url = req.body.text
+  console.log(url);
+  
+  
 
 })
 
 
 app.get("/analyseText", (req, res) =>{
-  let x =  textapi.classify({
-    text: text
+  textapi.sentiment({
+    url: url
   }, function(error, response) {
     if (error === null) {
-      response['categories'].forEach(function(c) {
-        
-        res.status(200).send(c);
-        
-      });
+      console.log(response);
+      res.send(response)
     }else{
-        console.log(error);
-        res.send({
-            label: "Invalid Input"
-        });
+      console.log("error");
+      
     }
   });
+  
 })
 
 
+// let x =  textapi.classify({
+//   text: text
+// }, function(error, response) {
+//   if (error === null) {
+//     response['categories'].forEach(function(c) {
+      
+//       res.status(200).send(c);
+      
+//     });
+//   }else{
+//       console.log(error);
+//       res.send({
+//           label: "Invalid Input"
+//       });
+//   }
+// });

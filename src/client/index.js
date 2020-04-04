@@ -13,7 +13,7 @@ import {linkedin} from "./img/linkedin.png"
 import {youtube} from "./img/youtube.jpg"
 import {twitter} from "./img/twitter.png"
 import {logo} from "./img/logo.jpg"
-import { test } from "./js/__tests__/getCategoryTest.js"
+//import { test } from "./js/__tests__/getCategoryTest.js"
 
 
 

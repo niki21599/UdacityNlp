@@ -14,12 +14,12 @@ const postText = async (url = "", data = {}) =>{
 
 const getCategory = async () =>{
     
-    const res = await fetch("/analyseText")
+    const res = await fetch("http://localhost:8081/analyseText")
 
     try {
-        const catJson = await res.json()
-        const categorie = catJson.label
-        return categorie
+        const sentimentJson = await res.json()
+        
+        return sentimentJson
         
     } catch (error) {
         console.log(error);
@@ -27,10 +27,19 @@ const getCategory = async () =>{
     }
 }
 
-const updateUI = (category) => {
+const updateUI = (sentiment) => {
+    for (let index = 0; index < 5; index++) {
+       let p = document.createElement("p") 
+       p.id = `p${index}`
+       document.getElementById('results').appendChild(p)
 
-    document.getElementById('results').innerHTML = `This Text belongs to the category ${category}`
-    
+    }
+    document.getElementById('p0').innerHTML = `${sentiment.polarity}`
+    document.getElementById('p1').innerHTML = `${sentiment.subjectivity}`
+    document.getElementById('p2').innerHTML = `${sentiment.polarity_confidence}`
+    document.getElementById('p3').innerHTML = `${sentiment.subjectivity_confidence}`
+    document.getElementById('p4').innerHTML = `${sentiment.text}`
+
 }
 
 

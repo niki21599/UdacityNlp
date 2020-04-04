@@ -4,6 +4,7 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value
         
+        
     displayCategory(formText)
     
     
@@ -20,7 +21,8 @@ function displayCategory(text){
 
 
 function determineCategory(text){
-    Client.postText("/text", {text: text})
+    
+    Client.postText("http://localhost:8081/text", {text: text})
     return Client.getCategory()
 }
 export { handleSubmit, determineCategory }
