@@ -1,22 +1,17 @@
 
+import {handleSubmit} from ".././formHandler.js"
 import {determineCategory} from ".././formHandler.js"
 
+const regeneratorRuntime = require("regenerator-runtime")
 
-
-describe("Get Cat Function", () =>{
-  test("Valid input", ()=>{
-    const input = "american football"
-    const output = "sport - American football"
-    expect(determineCategory(input).toEqual(output))
-  })
+test("handleSubmit defined", async () =>{
+  expect(handleSubmit).toBeDefined()
 })
 
-describe("Get Cat Function", () =>{
-  test("InValid input", ()=>{
-    const input = ""
-    const output = "Invalid Input"
-    expect(determineCategory(input).toEqual(output))
-  })
+test("determineSentiment defined", async () =>{
+  expect(determineCategory).toBeDefined()
 })
+
+
 
 

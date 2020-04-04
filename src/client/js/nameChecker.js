@@ -28,17 +28,23 @@ const getCategory = async () =>{
 }
 
 const updateUI = (sentiment) => {
-    for (let index = 0; index < 5; index++) {
-       let p = document.createElement("p") 
-       p.id = `p${index}`
-       document.getElementById('results').appendChild(p)
-
+    if (sentiment.text === "invalid") {
+        document.getElementById('results').innerHTML = "Invalid Input - Try again."
+        
+    }else{
+        for (let index = 0; index < 5; index++) {
+            let p = document.createElement("p") 
+            p.id = `p${index}`
+            document.getElementById('results').appendChild(p)
+     
+         }
+         document.getElementById('p0').innerHTML = `${sentiment.polarity}`
+         document.getElementById('p1').innerHTML = `${sentiment.subjectivity}`
+         document.getElementById('p2').innerHTML = `${sentiment.polarity_confidence}`
+         document.getElementById('p3').innerHTML = `${sentiment.subjectivity_confidence}`
+         document.getElementById('p4').innerHTML = `${sentiment.text}`
     }
-    document.getElementById('p0').innerHTML = `${sentiment.polarity}`
-    document.getElementById('p1').innerHTML = `${sentiment.subjectivity}`
-    document.getElementById('p2').innerHTML = `${sentiment.polarity_confidence}`
-    document.getElementById('p3').innerHTML = `${sentiment.subjectivity_confidence}`
-    document.getElementById('p4').innerHTML = `${sentiment.text}`
+    
 
 }
 
