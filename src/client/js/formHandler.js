@@ -2,27 +2,20 @@ function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-        
-        
-    displayCategory(formText)
-    
-    
-
+    let formText = document.getElementById('name').value   
+    displaySentiment(formText)
 }
 
-function displayCategory(text){
-    determineCategory(text)
+function displaySentiment(url){
+    determineSentiment(url)
      .then(function(data){
         Client.updateUI(data)
      })
 }
 
-
-
-function determineCategory(text){
+function determineSentiment(url){
     
-    Client.postText("http://localhost:8081/text", {text: text})
-    return Client.getCategory()
+    Client.postText("http://localhost:8081/text", {url: url})
+    return Client.getSentiment()
 }
-export { handleSubmit, determineCategory }
+export {handleSubmit, determineSentiment}

@@ -43,10 +43,7 @@ app.get('/test', function (req, res) {
 
 app.post("/text", (req, res) =>{
   
-  url = req.body.text
-  console.log(url);
-  
-  
+  url = req.body.url
 
 })
 

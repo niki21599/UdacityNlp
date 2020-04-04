@@ -1,6 +1,3 @@
-
-
-
 const postText = async (url = "", data = {}) =>{ 
     const res = await fetch (url, {
         method: "Post", 
@@ -12,7 +9,7 @@ const postText = async (url = "", data = {}) =>{
     });
 }
 
-const getCategory = async () =>{
+const getSentiment = async () =>{
     
     const res = await fetch("http://localhost:8081/analyseText")
 
@@ -39,11 +36,11 @@ const updateUI = (sentiment) => {
             addParagraphtoResult(`p${index}`)
      
          }
-         document.getElementById('p0').innerHTML = `${sentiment.polarity}`
-         document.getElementById('p1').innerHTML = `${sentiment.subjectivity}`
-         document.getElementById('p2').innerHTML = `${sentiment.polarity_confidence}`
-         document.getElementById('p3').innerHTML = `${sentiment.subjectivity_confidence}`
-         document.getElementById('p4').innerHTML = `${sentiment.text}`
+         document.getElementById('p0').innerHTML = `Polarity: ${sentiment.polarity}`
+         document.getElementById('p1').innerHTML = `Subjectivity: ${sentiment.subjectivity}`
+         document.getElementById('p2').innerHTML = `Polarity Confidence: ${Math.round(sentiment.polarity_confidence *100)/100}`
+         document.getElementById('p3').innerHTML = `Subjectivity Confidence: ${Math.round(sentiment.subjectivity_confidence*100)/100}`
+         document.getElementById('p4').innerHTML = `Content:  \n${sentiment.text}`
 
     }
     
@@ -57,4 +54,4 @@ const addParagraphtoResult = (id) => {
 
 
 
-export { postText, getCategory, updateUI }
+export { postText, getSentiment, updateUI }
